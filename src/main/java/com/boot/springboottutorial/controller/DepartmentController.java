@@ -19,15 +19,15 @@ public class DepartmentController {
     @Autowired
     private DepartmentService departmentService;
 
-    private final Logger LOGGER =
-            (Logger) LoggerFactory.getLogger(DepartmentController.class);
+//    private final Logger LOGGER =
+//            (Logger) LoggerFactory.getLogger(DepartmentController.class);
 
 /*
      **************** Create department ******************
  */
     @PostMapping()
     public Department saveDepartment(@Valid @RequestBody Department department){
-        LOGGER.info("Inside saveDepartment of DepartmentController");
+//        LOGGER.info("Inside saveDepartment of DepartmentController");
         return departmentService.saveDepartment(department);
     }
 
