@@ -1,6 +1,7 @@
 package com.boot.springboottutorial.controller;
 
 import com.boot.springboottutorial.Entity.Department;
+import com.boot.springboottutorial.Exception.DepartmentNotFoundException;
 import com.boot.springboottutorial.service.DepartmentService;
 import com.sun.source.doctree.DeprecatedTree;
 import org.apache.juli.logging.LogFactory;
@@ -43,7 +44,7 @@ public class DepartmentController {
     **************** get department by ID ******************
  */
     @GetMapping("/{id}")
-    public Department getDepartmentByID(@PathVariable("id") Long departmentID){
+    public Department getDepartmentByID(@PathVariable("id") Long departmentID) throws DepartmentNotFoundException {
         return departmentService.getDepartmentByID(departmentID);
     }
 
