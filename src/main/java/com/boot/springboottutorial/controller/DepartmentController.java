@@ -3,11 +3,14 @@ package com.boot.springboottutorial.controller;
 import com.boot.springboottutorial.Entity.Department;
 import com.boot.springboottutorial.service.DepartmentService;
 import com.sun.source.doctree.DeprecatedTree;
+import org.apache.juli.logging.LogFactory;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.logging.Logger;
 
 @RestController
 @RequestMapping("/departments")
@@ -16,11 +19,15 @@ public class DepartmentController {
     @Autowired
     private DepartmentService departmentService;
 
+    private final Logger LOGGER =
+            (Logger) LoggerFactory.getLogger(DepartmentController.class);
+
 /*
      **************** Create department ******************
  */
     @PostMapping()
     public Department saveDepartment(@Valid @RequestBody Department department){
+        LOGGER.info("Inside saveDepartment of DepartmentController");
         return departmentService.saveDepartment(department);
     }
 
